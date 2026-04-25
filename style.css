@@ -112,12 +112,21 @@ a:hover { color: var(--crimson-dark); text-decoration: underline; text-decoratio
 
 .nav-brand {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.625rem;
   line-height: 1;
   text-decoration: none;
   flex-shrink: 0;
 }
 .nav-brand:hover { text-decoration: none; }
+
+.nav-shield { flex-shrink: 0; }
+
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
+}
 
 .nav-brand-name {
   font-family: 'Libre Baskerville', Georgia, serif;
@@ -134,6 +143,48 @@ a:hover { color: var(--crimson-dark); text-decoration: underline; text-decoratio
   text-transform: uppercase;
   color: var(--crimson);
   margin-top: 3px;
+}
+
+/* ── Maze animation ──────────────────────────────────────── */
+.hero-maze-wrap {
+  margin-bottom: 1.75rem;
+}
+
+@keyframes maze-draw {
+  from { stroke-dashoffset: 242; }
+  to   { stroke-dashoffset: 0; }
+}
+
+.maze-path {
+  animation: maze-draw 2.8s ease-in-out alternate infinite;
+}
+
+/* ── Hero identity block ─────────────────────────────────── */
+.hero-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-identity-org {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-2);
+  letter-spacing: 0.01em;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 0.2rem;
+}
+
+.hero-identity-prog {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  font-family: 'Inter', sans-serif;
 }
 
 .nav-links {
@@ -180,9 +231,9 @@ a:hover { color: var(--crimson-dark); text-decoration: underline; text-decoratio
   max-width: var(--w);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 6rem;
-  align-items: center;
+  grid-template-columns: 1fr 340px;
+  gap: 5rem;
+  align-items: start;
 }
 
 .hero-kicker {
